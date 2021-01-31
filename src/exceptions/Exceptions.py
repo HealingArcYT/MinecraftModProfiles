@@ -1,7 +1,4 @@
-import sys
-
-
-class InputError(Exception):
+class ProfileNotFoundError(Exception):
     def __init__(self, expression, message):
         self.expression = expression
         self.message = message
@@ -12,10 +9,10 @@ class InputError(Exception):
     def print(self):
         print(self)
 
+
 if __name__ == "__main__":
     try:
-        raise InputError("test", "test")
-    except InputError as e:
+        raise ProfileNotFoundError("test", "test")
+    except ProfileNotFoundError as e:
         e.print()
-        print(sys.exc_info()[2])
     print("l")
