@@ -1,5 +1,5 @@
 import json
-from exceptions.Exceptions import ProfileNotFoundError
+from src.exceptions.Exceptions import ProfileNotFoundError
 import os
 import shutil
 
@@ -20,9 +20,9 @@ class MinecraftModProfiles:
             )
 
     def setting(self, **kwargs):
-        for key, value in kwargs:
-            if key == "path":
-                self.settings["path"] = value
+        for key, value in kwargs.items():
+            if key == "minecraft":
+                self.settings["minecraft"] = value
         open("settings.json", "w").write(json.dumps(self.settings))
 
     def changeProfile(self, name):
